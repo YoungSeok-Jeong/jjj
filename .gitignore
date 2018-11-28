@@ -3,3 +3,5 @@ Temp/
 .vs/
 obj/
 .DS_Store
+*.sln
+*.csproj

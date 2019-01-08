@@ -3,12 +3,17 @@ namespace Entity {
     [System.Serializable]
     public class CardInfo {
         public string name;
-        public string type;
+        public CardType type;
         public int value;
-        public int aaaa;
+        public int energy;
         public TargetType target;
     }
 
+    public enum CardType {
+        Attack,
+        Defense,
+        Poison
+    }
     public enum TargetType {
         Single
         , All

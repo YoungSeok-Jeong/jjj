@@ -2,29 +2,36 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Card : MonoBehaviour {
-    [SerializeField]
-    private List<string> m_has = new List<string>();
+namespace Entity {
+    [System.Serializable]
+    public class Card {
+        [SerializeField]
+        private int m_lv = 1;
 
-    public void Add(string name) {
-        this.m_has.Add(name);
-    }
+        [SerializeField]
+        private string m_type = "attack";
 
-    public string SelectCard(int idx) {
-        if (idx < this.m_has.Count) {
-            return this.m_has[idx];
-        } else {
-            return null;
+
+        public int GetLv() {
+            return this.m_lv;
+        }
+
+        public string GetCardType() {
+            return this.m_type;
+        }
+
+        private Card(int lv, string type) {
+            this.m_lv = lv;
+            this.m_type = type;
+        }
+
+        public static Card Create(int lv, string type) {
+            return new Card(lv, type);
+        }
+
+        public static Card Create(string type) {
+            return new Card(1, type);
         }
     }
 
-    // Use this for initialization
-    void Start() {
-
-    }
-
-    // Update is called once per frame
-    void Update() {
-
-    }
 }
